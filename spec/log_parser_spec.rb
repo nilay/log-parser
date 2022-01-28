@@ -40,7 +40,7 @@ RSpec.describe "LogParser" do
     end
 
     it 'should calculate unique count correctly' do
-      expect(@result[0][:count]).to eq 2
+      expect(@result[0][:count]).to eq 3
       expect(@result[0][:unique_count]).to eq 2
     end
 

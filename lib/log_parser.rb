@@ -36,9 +36,9 @@ class LogParser
     unique_visit_count = {}
     CSV.foreach(@log_file, headers: false) do |row|
       uri, ip = row[0].split
-      visit_count.key?(uri) ? visit_count[uri] += 1 : visit_count[uri] = 0
+      visit_count.key?(uri) ? visit_count[uri] += 1 : visit_count[uri] = 1
       # Set acts like array but keeps only unique items
-      unique_visit_count.key?(uri) ? unique_visit_count[uri].add(ip)  : unique_visit_count[uri] = Set[uri]
+      unique_visit_count.key?(uri) ? unique_visit_count[uri].add(ip)  : unique_visit_count[uri] = Set[ip]
     end
     [ visit_count, unique_visit_count ]
   end
